@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | Web Invitation Creator</title>
+    <link rel="stylesheet" href="/client/assets/css/base.css" />
+    <link rel="stylesheet" href="/client/assets/css/adminDashboard.css" />
+  </head>
+  <body class="admin-page">
+    <header class="admin-header">
+      <div>
+        <p class="admin-kicker">Web Invitation Creator</p>
+        <h1>Admin Dashboard</h1>
+        <p class="admin-subtitle">
+          Welcome, <span id="admin-name">Administrator</span>
+        </p>
+      </div>
+
+      <div class="admin-actions">
+        <button id="admin-refresh-btn" class="btn btn-secondary" type="button">
+          Refresh
+        </button>
+        <button id="admin-logout-btn" class="btn btn-primary" type="button">
+          Logout
+        </button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <section class="admin-stats">
+        <article class="stat-card">
+          <p class="stat-label">All Themes</p>
+          <p id="all-themes-count" class="stat-value">0</p>
+        </article>
+        <article class="stat-card">
+          <p class="stat-label">Active Themes</p>
+          <p id="active-themes-count" class="stat-value">0</p>
+        </article>
+        <article class="stat-card">
+          <p class="stat-label">Inactive Themes</p>
+          <p id="inactive-themes-count" class="stat-value">0</p>
+        </article>
+      </section>
+
+      <section id="admin-create-wrap" class="admin-card hidden">
+        <div class="section-head">
+          <h2>Create Invitation</h2>
+          <div class="admin-actions">
+            <button
+              id="admin-cancel-create-btn"
+              class="btn btn-secondary"
+              type="button"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+
+        <form id="admin-create-invitation-form" class="admin-form">
+          <label for="admin-title">Title</label>
+          <input id="admin-title" name="title" type="text" required />
+
+          <label for="admin-eventDate">Event Date</label>
+          <input
+            id="admin-eventDate"
+            name="eventDate"
+            type="datetime-local"
+            required
+          />
+
+          <label for="admin-rsvpCutoffDate">RSVP Cutoff Date</label>
+          <input
+            id="admin-rsvpCutoffDate"
+            name="rsvpCutoffDate"
+            type="datetime-local"
+            required
+          />
+
+          <label for="admin-location">Location</label>
+          <input id="admin-location" name="location" type="text" required />
+
+          <label for="admin-eventType">Event Type</label>
+          <select id="admin-eventType" name="eventType">
+            <option value="">Select type</option>
+            <option value="wedding">Wedding</option>
+            <option value="birthday">Birthday</option>
+            <option value="baptism">Baptism</option>
+            <option value="party">Party</option>
+            <option value="meeting">Meeting</option>
+            <option value="other">Other</option>
+          </select>
+
+          <label for="admin-theme">Theme</label>
+          <input id="admin-theme" name="theme" type="hidden" />
+          <div id="admin-theme-card-list" class="admin-theme-card-list"></div>
+          <p id="admin-theme-help-text" class="status-text">
+            Choose an event type to load themes.
+          </p>
+
+          <label for="admin-eventTime">Event Time</label>
+          <input
+            id="admin-eventTime"
+            name="eventTime"
+            type="text"
+            placeholder="5:00 PM"
+          />
+
+          <label for="admin-googleMapLink">Google Map Link</label>
+          <input
+            id="admin-googleMapLink"
+            name="googleMapLink"
+            type="url"
+            placeholder="https://maps.google.com/..."
+          />
+
+          <label for="admin-message">Message</label>
+          <textarea
+            id="admin-message"
+            name="message"
+            rows="4"
+            placeholder="Write your invitation message"
+          ></textarea>
+
+          <label for="admin-images">Images (1 to 5)</label>
+          <input
+            id="admin-images"
+            name="images"
+            type="file"
+            accept="image/*"
+            multiple
+            required
+          />
+
+          <button
+            id="admin-submit-create-btn"
+            class="btn btn-primary"
+            type="submit"
+          >
+            Save Invitation
+          </button>
+          <p id="admin-create-status" class="status-text"></p>
+        </form>
+      </section>
+
+      <section class="admin-card">
+        <div class="section-head">
+          <h2>Admin Invitations</h2>
+          <div class="admin-actions">
+            <button
+              id="admin-open-create-btn"
+              class="btn btn-primary"
+              type="button"
+            >
+              Create Invitation
+            </button>
+          </div>
+        </div>
+        <p class="status-text">
+          Select an event type to see matching themes, including inactive themes.
+        </p>
+        <p id="admin-invitation-status" class="status-text">Loading invitations...</p>
+        <div id="admin-invitation-list" class="admin-invitation-list"></div>
+      </section>
+
+      <section class="admin-card">
+        <div class="section-head">
+          <h2>Create Theme</h2>
+          <p id="create-theme-status" class="status-text"></p>
+        </div>
+
+        <form id="create-theme-form" class="admin-form">
+          <label for="theme-name">Theme Name</label>
+          <input id="theme-name" name="name" type="text" required />
+
+          <label for="theme-description">Description</label>
+          <textarea
+            id="theme-description"
+            name="description"
+            rows="3"
+            placeholder="Theme description"
+          ></textarea>
+
+          <label for="theme-category">Category</label>
+          <select id="theme-category" name="category" required>
+            <option value="">Select category</option>
+            <option value="birthday">Birthday</option>
+            <option value="wedding">Wedding</option>
+            <option value="corporate">Corporate</option>
+            <option value="holiday">Holiday</option>
+            <option value="other">Other</option>
+          </select>
+
+          <label for="theme-template-key">Template Key</label>
+          <select id="theme-template-key" name="templateKey" required>
+            <option value="">Select template</option>
+            <option value="classic">Classic</option>
+            <option value="modern">Modern</option>
+            <option value="minimal">Minimal</option>
+            <option value="floral">Floral</option>
+            <option value="elegant">Elegant</option>
+          </select>
+
+          <p class="field-title">Color Picker</p>
+          <div class="color-picker-grid">
+            <label class="color-picker-option" for="theme-color-primary">
+              <span>Primary</span>
+              <input
+                id="theme-color-primary"
+                name="colorPrimary"
+                type="color"
+                value="#1f2937"
+                required
+              />
+            </label>
+
+            <label class="color-picker-option" for="theme-color-accent">
+              <span>Accent</span>
+              <input
+                id="theme-color-accent"
+                name="colorAccent"
+                type="color"
+                value="#0ea5e9"
+                required
+              />
+            </label>
+
+            <label class="color-picker-option" for="theme-color-soft">
+              <span>Soft</span>
+              <input
+                id="theme-color-soft"
+                name="colorSoft"
+                type="color"
+                value="#f8fafc"
+                required
+              />
+            </label>
+          </div>
+          <input id="theme-color-scheme" name="colorScheme" type="hidden" />
+
+          <button id="create-theme-btn" class="btn btn-primary" type="submit">
+            Save Theme
+          </button>
+        </form>
+      </section>
+
+      <section class="admin-card">
+        <div class="section-head">
+          <h2>Inactive Themes</h2>
+          <p id="inactive-theme-status" class="status-text">
+            Upload a preview image to activate a theme.
+          </p>
+        </div>
+        <div id="inactive-theme-list" class="theme-list"></div>
+      </section>
+
+      <section class="admin-card">
+        <div class="section-head">
+          <h2>All Themes</h2>
+          <p id="all-theme-status" class="status-text"></p>
+        </div>
+        <div id="all-theme-list" class="theme-list"></div>
+      </section>
+    </main>
+
+    <script src="/client/assets/js/adminDashboard.js"></script>
+    <script src="/client/assets/js/adminCreateInvitation.js"></script>
+  </body>
+</html>

@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-dark-leon-900: #151921;
+  --color-dark-leon-700: #1f242e;
+  --color-dark-leon-400: #2b3548;
+  --color-brown-leon-600: #9e7b5d;
+  --color-brown-leon-100: #fdf9f0;
+}
+
+@utility bg-card {
+  background-color: #151921;
+  opacity: 1;
+  background: repeating-linear-gradient(
+    -45deg,
+    #232730,
+    #232730 2px,
+    #151921 2px,
+    #151921 10px
+  );
+  transition-property: background-color, color, opacity, transform;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+}
+
+@keyframes ticker-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.food-ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-left 14s linear infinite;
+}
+
+@utility featured-clip {
+  clip-path: polygon(26% 0, 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* Additional for scrol */
+html {
+  scroll-behavior: smooth;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #fffbeb;
+}
+
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px #fe9a00;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #fe9a00;
+
+  border-radius: 6px;
+}
+
+.bg-leon-img {
+  @apply bg-[url('/images/testimonial-bg.jpg')];
+}

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Color Game - Mini Project</title>
+  <script type="module" src="./index.js" defer ></script>
+
+   <link rel="Icon" href="./favicon.ico">
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <header>
+    <h1 id="game-title">~ Color Game ~</h1>
+  </header>
+
+  <main class="container">
+
+    
+
+    <section class="colors-container">
+      <button class="color-pick red" data-color="red" ></button>
+      <button class="color-pick yellow" data-color="yellow"></button>
+      <button class="color-pick white" data-color="white"></button>
+      <button class="color-pick blue" data-color="blue"></button>
+      <button class="color-pick green" data-color="green"></button>
+      <button class="color-pick pink" data-color="pink"></button>
+    </section>
+
+
+    <section id="money-bet">
+      <h1 id="money-heading">Money: ₱<span id="money"></span></h1>
+
+      <div id="bet-and-play">
+        <input type="number" id="bet" placeholder="Enter bet amount" min="1" max="1000000" />
+        <button id="btn-clear">Clear</button>
+        
+      </div>
+      <div id="bet-buttons">
+        <button class="bet-button" data-bet-value="1">1</button>
+        <button class="bet-button" data-bet-value="5">5</button>
+        <button class="bet-button" data-bet-value="10">10</button>
+        <button class="bet-button" data-bet-value="20">20</button>
+        <button class="bet-button" data-bet-value="50">50</button>
+         <button class="bet-button" data-bet-value="100">100</button>
+        <button class="bet-button" data-bet-value="500">500</button>
+        <button class="bet-button" data-bet-value="1000">1000</button>
+         <button class="bet-button" data-bet-value="allIn">All-In</button>
+      </div>
+
+     
+        <footer id="play-btn-container">
+
+        <button class="footer-btn how-to-play-btn" id="btn-how-to-play" >How to play</button>
+          <button id="playBtn"><img id="play-btn-img" src="./images/play-btn2.png" alt="play button"></button>
+      <button class="transaction-btn" >Transactions</button>
+      
+       
+      </footer>
+       
+
+      
+    </section>
+
+
+
+
+    
+  </main>
+
+
+
+
+
+
+      <div id="result-container-modal"></div>
+
+      <div id="alert-modal">
+        <div class="alert-content">
+          <div id="exit-alert-modal">X</div>
+          <p id="alert-message"></p>
+        </div>
+      </div>
+
+      <div id="confirm-modal">
+        <div class="confirm-content">
+            <p id="confirm-message">🤔Are you sure you want to reset game data❓</p>
+            <div id="confirm-button-container">
+              <button class="confirm-btn" id="confirm-ok">Ok</button>
+              <button class="confirm-btn" id="confirm-cancel">Cancel</button>
+            </div>
+        </div>
+      </div>
+
+
+      <div id="transaction-modal">
+
+        <div id="exit-transaction-modal">X</div>
+          <h3 id="transaction-heading">Transactions</h3>
+
+
+        <div class = "transaction-modal-content">
+          
+
+          <section class="transaction-item" id="transaction-money-container">
+            <p id="transaction-money">Account Money</p>
+            <h1 id="transaction-total-money">₱100</h1>
+            
+          </section>
+
+          <section class="transaction-item" id="transaction-debt-bank-container">
+            <p id="transaction-debt">Debt Amount: 200</p>
+            <p id="transaction-bank">Bank Money: 500</p>
+          </section>
+
+    
+
+            <section class="transaction-item" id="borrow-container">
+              <p>Borrow 500 cash. It will add automatically to your account money</p>
+              <button id="borrow-btn">Borrow</button>
+            </section>
+              
+            <section class="transaction-item" id="pay-debt-container">
+              <p>Pay your total debt from your bank money</p>
+              <button id="btn-pay-debt">Pay Debt</button>
+            </section>
+
+              
+            <section class="transaction-item" id="cashIn-cashOut-container">
+              <p>Transfer money from bank to your account or transfer Money from your account to your bank</p>
+              
+              
+              <div id="cashIn-out-btn-container">
+                <input type="number" id="input-cash-in-out" placeholder="Amount" min="1" max="1000000">
+                <button id="btn-cash-in">Cash In</button>
+                <button id="btn-cash-out">Cash Out</button>
+              </div>
+            </section>
+
+               <section class="transaction-item">
+              <p>Game data will be reset</p>
+              <button id="btn-reset">Game Reset</button>
+            </section>
+            
+
+            
+           
+        </div>
+      </div>
+
+      <div id = "how-to-play-modal">
+        <div id="exit-how-to-play-modal">X</div>
+          <h3 id="how-to-play-heading">How to Play</h3>
+
+
+        <div id = "how-to-play-content">
+          <div class="how-to-play-item" id="how-to-intro">
+            <p>Welcome to the Color Game! Test your luck, trust your instincts, and win big by choosing the right color.</p>
+          </div>
+
+          <div class="how-to-play-item">
+            <h4>🎨 Game Objective</h4>
+            <p>Predict which color will appear. Earn money based on your bet.</p>
+          </div>
+
+          <div class="how-to-play-item">
+            <h4>💰 Starting Money</h4>
+            <p>You start the game with ₱100. Use this money to place bets on your chosen color.</p>
+          </div>
+          <div class="how-to-play-item" id="how-to-instructions">
+            <h4>🎯 Instructions</h4>
+            <ul>
+              <li>Enter the amount of money you want to bet. Make sure you have enough balance.</li>
+              <li>Select one color from the available six colors.</li>
+              <li>Click the Play to start and will generate a rondom of 3 colors.</li>
+              <li>If your chosen color match with the random 3 colors, you win. if doesn't you lose your bet.</li>
+
+            </ul>
+          </div>
+
+          <div class="how-to-play-item">
+            <h4>🧮 Winning Rules</h4>
+            <p>Your winnings depend on how many times your color appears</p>
+            <ul>
+              <li>1 match → Win 1x your bet</li>
+              <li>2 matches → Win 2x your bet</li>
+              <li>3 matches → Win 3x your bet and have a chance to win more with 5 to 100 times of your bet</li>
+            </ul>
+          </div>
+
+
+          <div class="how-to-play-item" id="how-to-additional">
+            <h4>ℹ️Additional</h4>
+            <ul>
+              <li>It can be play with a group of people play it with 2 minutes. After 2 minutes the one who has more money will win.</li>
+              <li>In Transactions: You can borrow 500 and you will get 500 debt</li>
+              <li>In Transactions: You can pay your debt from your bank money</li>
+              <li>In Transactions: You can cash out and transfer money to your bank money</li>
+              <li>In Transactions: You can cash in and transfer money from your bank money</li>
+              <li>In Transactions: You can restart the game using restart button. It will remove the data you played</li>
+            </ul>
+          </div>
+          
+          <div class="how-to-play-item">
+            <h4>⚠️ Tips</h4>
+            <ul>
+              <li>Bet wisely higher bets mean higher risks.</li>
+              <li>Don't go all-in every round.</li>
+              <li>Luck changes—play smart!</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+</body>
+
+</html>

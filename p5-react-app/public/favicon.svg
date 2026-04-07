@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">Restaurant app icon</title>
+  <desc id="desc">A warm restaurant badge with a serving cloche, plate, and steam.</desc>
+  <defs>
+    <linearGradient id="bg" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#151921" />
+      <stop offset="1" stop-color="#2b3548" />
+    </linearGradient>
+    <linearGradient id="accent" x1="18" y1="16" x2="46" y2="44" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fe9a00" />
+      <stop offset="1" stop-color="#9e7b5d" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)" />
+  <circle cx="32" cy="32" r="24" fill="#fdf9f0" opacity="0.1" />
+  <path d="M24 42h16" stroke="#fdf9f0" stroke-width="3" stroke-linecap="round" />
+  <path d="M20 39c0-7.73 5.37-13 12-13s12 5.27 12 13" fill="none" stroke="url(#accent)" stroke-width="4" stroke-linecap="round" />
+  <path d="M28 23c0-1.99 1.79-3.6 4-3.6s4 1.61 4 3.6" fill="none" stroke="#fdf9f0" stroke-width="3" stroke-linecap="round" />
+  <circle cx="32" cy="19.5" r="1.8" fill="#fdf9f0" />
+  <path d="M26 16c-1.45 1.48-1.41 3.72.1 5.15" fill="none" stroke="#fe9a00" stroke-width="2.2" stroke-linecap="round" />
+  <path d="M38 16c1.45 1.48 1.41 3.72-.1 5.15" fill="none" stroke="#fe9a00" stroke-width="2.2" stroke-linecap="round" />
+  <path d="M32 14c-1.5 1.66-1.43 4.18.17 5.75" fill="none" stroke="#fdf9f0" stroke-width="2.2" stroke-linecap="round" />
+</svg>

@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Invitation</title>
+    <link rel="stylesheet" href="/client/assets/css/base.css" />
+
+    <link
+      id="css-theme"
+      rel="stylesheet"
+      href="/client/assets/css/themes/default-theme.css"
+    />
+  </head>
+  <body class="public-page">
+    <main class="public-shell">
+      <section class="public-card">
+        <p id="public-status" class="public-status">Loading invitation...</p>
+
+        <header class="inv-hero">
+          <h1 id="inv-title">Invitation</h1>
+          <p id="inv-hero-subtitle" class="inv-hero-subtitle"></p>
+          <p id="inv-message" class="inv-message"></p>
+        </header>
+
+        <div class="inv-details">
+          <p><strong>Event Date:</strong> <span id="inv-date">N/A</span></p>
+          <p><strong>Event Time:</strong> <span id="inv-time">N/A</span></p>
+          <p><strong>Location:</strong> <span id="inv-location">N/A</span></p>
+        </div>
+        <button id="view-map-btn" class="map-btn hidden" type="button">
+          View Google Map
+        </button>
+
+        <section class="countdown-wrap">
+          <p class="countdown-label">Time Before Event</p>
+          <p id="event-countdown" class="countdown-value">Loading timer...</p>
+        </section>
+
+        <div id="inv-images" class="inv-images"></div>
+
+        <section class="rsvp-wrap">
+          <h2>RSVP</h2>
+          <p id="rsvp-help" class="rsvp-help">
+            Please confirm if you can attend this event.
+          </p>
+
+          <form id="rsvp-form" class="rsvp-form">
+            <label for="rsvp-name">Name</label>
+            <input id="rsvp-name" name="name" type="text" required />
+
+            <label for="rsvp-email">Email</label>
+            <input id="rsvp-email" name="email" type="email" required />
+
+            <label for="rsvp-response">Response</label>
+            <select id="rsvp-response" name="response" required>
+              <option value="">Select response</option>
+              <option value="yes">Yes, I will attend</option>
+              <option value="no">No, I cannot attend</option>
+            </select>
+
+            <label for="rsvp-message">Message (Optional)</label>
+            <textarea
+              id="rsvp-message"
+              name="message"
+              rows="3"
+              placeholder="Write a short message"
+            ></textarea>
+
+            <button id="rsvp-submit-btn" type="submit">Send RSVP</button>
+            <p id="rsvp-status" class="rsvp-status"></p>
+          </form>
+        </section>
+      </section>
+    </main>
+
+    <script src="/client/assets/js/invitationThemeLibrary.js"></script>
+    <script src="/client/assets/js/publicInvitation.js"></script>
+  </body>
+</html>

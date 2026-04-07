@@ -1,0 +1,1118 @@
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+
+  font-family: "Funnel Display", sans-serif;
+  font-optical-sizing: auto;
+
+  font-style: normal;
+
+}
+
+
+body {
+  font-family: Arial, sans-serif;
+
+  color: #e4e4e4;
+
+  background-color: #141219;
+  opacity: 1;
+  background-image: linear-gradient(30deg, #19161f 12%, transparent 12.5%, transparent 87%, #19161f 87.5%, #19161f), linear-gradient(150deg, #19161f 12%, transparent 12.5%, transparent 87%, #19161f 87.5%, #19161f), linear-gradient(30deg, #19161f 12%, transparent 12.5%, transparent 87%, #19161f 87.5%, #19161f), linear-gradient(150deg, #19161f 12%, transparent 12.5%, transparent 87%, #19161f 87.5%, #19161f), linear-gradient(60deg, #19161f77 25%, transparent 25.5%, transparent 75%, #19161f77 75%, #19161f77), linear-gradient(60deg, #19161f77 25%, transparent 25.5%, transparent 75%, #19161f77 75%, #19161f77);
+  background-size: 80px 140px;
+  background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+
+
+#game-title {
+
+  font-size: 2rem;
+  padding-top: 2rem;
+
+  text-align: center;
+
+
+  font-family: "Henny Penny", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(229, 218, 151);
+
+  text-shadow: 0px 1px 2px #e79600;
+
+
+}
+
+header {
+  display: flex;
+  justify-content: center;
+
+}
+
+
+
+main {
+  padding: 1rem 24px;
+  max-width: 600px;
+  margin: auto;
+  
+}
+
+
+.colors-container {
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
+  align-content: center;
+  gap: 8px;
+
+
+}
+
+#money-bet {
+  padding-top: 2rem;
+  width: 100%;
+}
+
+
+.color-pick {
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100px;
+  border: none;
+  cursor: pointer;
+  border-radius: .5rem;
+
+
+  box-shadow: inset 0px 2px 0px 0px #ffffff2d;
+
+  border: 1px solid #4242425d;
+  
+}
+
+.red {
+  background: #eb3030;
+}
+
+.yellow {
+  background: #ffff34;
+}
+
+.white {
+  background: #e9e9e9;
+}
+
+.blue {
+  background: #004aeb;
+}
+
+.green {
+  background: #00a732;
+}
+
+.pink {
+  background: #ff6291;
+}
+
+
+
+
+
+#money-heading {
+  font-size: 1rem;
+}
+
+
+#bet-and-play {
+  padding: .5rem 0;
+  display: flex;
+  gap: .5rem;
+}
+
+#bet {
+  font-size: 1rem;
+  padding: .5rem;
+  flex: 3 1 50px;
+  border-radius: 8px;
+
+  border: 2px solid #ffffff00;
+  transition: 0.3s ease;
+  color: #505c77;
+  font-weight: bold;
+
+
+
+  background-color: #f0f0f0;
+}
+
+#bet::placeholder {
+  font-weight: 400;
+  color: rgb(173, 173, 173);
+}
+
+#bet:focus {
+  outline: none;
+  border: 2px solid #ffae00;
+}
+
+#btn-clear {
+  font-size: 1rem;
+  padding: .5rem;
+  border-radius: 8px;
+
+
+  color: #c3cce4;
+  font-weight: bold;
+
+  box-shadow: inset 0px 2px 0px 0px #4d5464;
+
+  border: 1px solid #465066;
+  background-color: #31394b;
+
+  text-shadow: 0px 1px 0px #222630;
+
+  transition: 400ms ease;
+}
+
+#btn-clear:hover {
+
+
+  background-color: #141822;
+
+}
+
+/* -------------------------------------------- */
+
+#result-container-modal {
+
+
+  justify-content: center;
+  align-items: flex-start;
+
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.87);
+  backdrop-filter: blur(20px);
+  padding: 24px;
+  z-index: 1000;
+
+  overflow-y: auto;
+}
+
+
+
+.result-modal-content {
+  padding: 24px;
+  max-width: 1200px;
+  background-color: #1b1b208a;
+  border-radius: 8px;
+
+
+}
+
+#result-heading {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 1rem;
+
+}
+
+#aiText {
+  font-size: 1rem;
+  line-height: 1.7rem;
+}
+
+#result {
+  padding: 1rem 0;
+  display: flex;
+  justify-items: center;
+  gap: .5rem;
+
+}
+
+#result .result-color {
+  width: 100%;
+
+  color: #0000005d;
+  border-radius: 4px;
+  line-height: 50px;
+  text-align: center;
+  font-size: .8rem;
+  text-transform: uppercase;
+
+  user-select: none;
+}
+
+
+#modal-money {
+  font-size: 1rem;
+  padding: .5rem 0;
+}
+
+
+
+#color-pick-modal {
+  padding: .5rem;
+  font-size: .7rem;
+  color: #00000081;
+  border-radius: .25rem;
+}
+
+#play-again-btn,
+#jackpot-btn {
+  display: block;
+  padding: .5rem 1rem;
+  margin-top: 1rem;
+  width: 100%;
+  cursor: pointer;
+
+
+}
+
+
+/* --------------------------------------------- */
+
+
+
+
+
+
+
+
+
+.token-bet {
+
+  user-select: none;
+  /* Ensure width and height are equal to form a circle */
+  width: 50px;
+  height: 50px;
+
+  /* Apply border-radius to make it round */
+  border-radius: 50%;
+
+  /* Center the number inside the circle */
+  text-align: center;
+  line-height: 50px;
+  /* Same as height for vertical centering */
+
+  /* Optional: Add some basic styling */
+
+  font-size: 1rem;
+  padding: 0;
+  /* Remove default padding */
+  font-weight: bold;
+
+  box-shadow: 0 0 6px 2px #0000003d;
+}
+
+
+.piso-bet {
+  background-color: #ffffff;
+  color: #575757;
+
+  outline: 4px dashed #a5a5a5;
+  outline-offset: -7px;
+}
+
+.ten-bet {
+  background-color: #004b3b;
+  color: #c2e9bc;
+
+  outline: 4px dashed #50e794;
+  outline-offset: -7px;
+}
+
+.hundred-bet {
+  background-color: #5f1f1f;
+  color: #d8a0a0;
+
+  outline: 4px dashed #974646;
+  outline-offset: -7px;
+
+
+
+  font-size: .9rem;
+}
+
+.thousand-bet {
+  background-color: rgb(156, 125, 40);
+  color: rgb(233, 228, 177);
+
+  outline: 4px dashed rgb(244, 252, 180);
+  outline-offset: -7px;
+
+
+
+  font-size: .7rem;
+}
+
+.ten-th-bet {
+  background-color: rgb(30, 30, 44);
+  color: #d3c744;
+
+  outline: 4px double rgb(67, 69, 87);
+  outline-offset: -10px;
+  width: fit-content;
+  height: fit-content;
+  line-height: auto;
+
+  padding: 3px 20px;
+
+  border-radius: 32px;
+
+  font-size: .7rem;
+}
+
+
+/* -------------------------------------------- */
+
+
+
+#jackpot-message {
+  padding: 1rem 0;
+  line-height: 2rem;
+}
+
+
+.bet-design {
+  background-color: rgb(209, 209, 209);
+  color: #32323f;
+  font-weight: 700;
+  padding: 2px 4px;
+  border-radius: 4px;
+
+}
+
+button {
+  cursor: pointer;
+}
+
+
+
+
+
+/* ------------------------------------------------------------- */
+
+
+#bet-buttons {
+
+  display: flex;
+  justify-content: space-between;
+
+  overflow: auto;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.bet-button {
+  padding: 4px 1rem;
+  background-color: #fac000;
+  border-radius: 8px;
+  border: none;
+
+  font-weight: bold;
+  color: #333333;
+
+  text-shadow: 0px 1px 0px #ffdc6a;
+  box-shadow: inset 0px 2px 0px 0px #fff6af;
+
+  border: 1px solid #ffaa22;
+
+}
+
+.bet-button:last-child {
+  flex: 2 1 70px;
+  background-color: #eed173;
+}
+
+/* -------------------------------------------- */
+
+
+
+/* #transactionBtn {
+  box-shadow: 0px 1px 0px 0px #1c1b18;
+  background: linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+  background-color: #eae0c2;
+
+  border: 2px solid #333029;
+  display: inline-block;
+  cursor: pointer;
+  color: #505739;
+  font-family: Arial;
+
+  font-weight: bold;
+  padding: 12px 16px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #ffffff;
+  height: 3rem;
+
+} */
+
+
+
+
+/* ___________________________________________________ */
+
+
+footer {
+  padding: 32px 20px 0;
+
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+  align-items: center;
+
+}
+
+#playBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #15141b;
+  border-radius: 50%;
+  box-shadow: inset 0px 4px 0px 0px #fff6afcc;
+  border: 1px solid rgb(48, 45, 20);
+  box-shadow: 0 2px 0 #63550a;
+
+  -webkit-tap-highlight-color: transparent;
+
+}
+
+
+#play-btn-img {
+  width: 70px;
+  height: 70px;
+  background-color: transparent;
+
+  flex: 0 0 70px;
+
+  user-select: none;
+
+
+  -webkit-user-drag: none;
+
+}
+
+#playBtn:active {
+  letter-spacing: 0px;
+  transform: skew(0deg) translateY(2px);
+  box-shadow: 0 0 0 #85730c;
+
+  outline: none;
+}
+
+
+
+
+.how-to-play-btn {
+
+  font-size: .7rem;
+  flex: 0 0 110px;
+  clip-path: polygon(25% 0%, 100% 0, 99% 50%, 100% 100%, 25% 100%, 20% 50%);
+
+  border-radius: 0;
+  border: none;
+  padding: 2px 8px 2px 15px;
+  text-align: right;
+  background-color: #b1a053;
+  color: #f3f3c1;
+
+  box-shadow: inset 0px 1px 0px 0px #fcf2becc;
+  border: 1px solid #c7ac35;
+
+
+
+}
+
+.transaction-btn {
+  font-size: .7rem;
+  flex: 0 0 110px;
+  clip-path: polygon(0 0, 75% 0%, 80% 50%, 75% 100%, 0 100%, 1% 50%);
+
+  border-radius: 0;
+  border: none;
+  padding: 2px 15px 2px 8px;
+  text-align: left;
+  background-color: #b1a053;
+
+  box-shadow: inset 0px 1px 0px 0px #fcf2becc;
+  border: 1px solid #c7ac35;
+
+  flex: 0 0 120px;
+
+
+  color: #f3f3c1;
+
+
+}
+
+
+
+/* ------------------------------------------------ */
+
+#transaction-modal {
+
+
+
+  display: none;
+  position: fixed;
+
+  background: #0b0c0ed2;
+  backdrop-filter: blur(20px);
+  padding: 24px;
+  z-index: 1000;
+
+  inset: 0;
+  overflow-y: auto;
+}
+
+#transaction-heading {
+  font-size: 1.5rem;
+  text-align: center;
+
+
+
+
+}
+
+#transaction-modal button{
+  background-color: #d4d4d4;
+  color: black;
+  padding: 4px 8px;
+}
+
+#transaction-modal input{
+  background-color: white;
+  border: 2px solid transparent;
+  border-radius: 2px;
+  padding: 4px 8px;
+
+  transition: 0.3s;
+}
+
+#transaction-modal input:focus{
+    outline: none;
+  border: 2px solid #ffae00;
+}
+
+
+#exit-transaction-modal {
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 1.2rem;
+
+
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: rgba(32, 28, 28, 0.473);
+  color: rgb(136, 136, 141);
+
+  border-radius: 6px;
+}
+
+
+.transaction-modal-content {
+  padding: 24px 0;
+  max-width: 768px;
+
+  margin: auto;
+
+  width: 100%;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+
+}
+
+
+
+
+.transaction-item {
+  color: silver;
+  font-size: small;
+  line-height: 16px;
+
+  flex: 1 1 120px;
+  padding: 1rem;
+  background-color: #ffffff0a;
+
+  border-radius: 16px;
+
+
+
+}
+
+.transaction-item p {
+  padding-bottom: 8px;
+}
+
+.transaction-item button {
+  padding: 2px 4px;
+
+
+  border-radius: 2px;
+  border: none;
+
+
+
+
+  box-shadow: inset 0px 2px 0px 0px #d1d1d1;
+
+
+
+}
+
+#cashIn-cashOut-container {
+  flex: 1 2 200px;
+
+  background-color: #ffffff00;
+  outline: 1px solid #44433e;
+}
+
+#cashIn-out-btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+
+
+}
+
+#input-cash-in-out {
+  padding: 0 4px;
+}
+
+#input-cash-in-out {
+  flex: 2 1 300px;
+}
+
+#btn-cash-in,
+#btn-cash-out {
+  flex: 1 1 60px;
+}
+
+
+#transaction-money-container {
+  background-color: #fcf1b569;
+
+}
+
+#transaction-total-money {
+  padding-top: 4px;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+
+/* ------------------------------------------------ */
+
+
+
+#how-to-play-modal {
+
+
+
+  display: none;
+  position: fixed;
+
+  background: #0b0c0ed2;
+  backdrop-filter: blur(20px);
+  padding: 24px;
+  z-index: 1000;
+
+  inset: 0;
+  overflow-y: auto;
+}
+
+#how-to-play-content {
+
+
+  padding: 24px 0;
+  max-width: 992px;
+
+  margin: auto;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+
+
+}
+
+.how-to-play-item {
+  color: silver;
+
+
+  flex: 1 1 200px;
+  padding: 1rem;
+  background-color: #ffffff0a;
+
+  border-radius: 16px;
+}
+
+#how-to-intro {
+  flex: 1 1 480px;
+}
+
+#how-to-instructions {
+  flex: 1 1 240px;
+}
+
+
+#how-to-additional {
+  flex: 2 1 420px;
+}
+
+
+.how-to-play-item p,
+ul li {
+  line-height: 1.2rem;
+  font-size: small;
+}
+
+.how-to-play-item h4 {
+  padding-bottom: 6px;
+}
+
+
+#exit-how-to-play-modal {
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 1.2rem;
+
+
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  background-color: rgba(32, 28, 28, 0.473);
+  color: rgb(136, 136, 141);
+}
+
+
+#how-to-play-heading {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.how-to-play-item ul li {
+  padding: 6px 0;
+  list-style: none;
+  border-bottom: 1px solid rgb(46, 46, 46);
+}
+
+
+
+
+/* --------------------------------------------------- */
+
+
+#alert-modal{
+
+
+
+  position: fixed;
+
+  inset: 0;
+  background: transparent;
+
+  padding: 24px;
+  z-index: 1004;
+
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+
+}
+
+.alert-content{
+  flex: 0 1 375px;
+  width: 240px;
+  padding: 32px;
+  background-color: rgba(0, 0, 0, 0.479);
+  backdrop-filter: blur(20px);
+  box-shadow: 4px 4px 15px 4px rgba(0, 0, 0, 0.39);
+
+  border-radius: 4px;
+
+  /* text-align: center; */
+
+  outline: 1px solid #ffffff1f;
+  position: relative;
+
+  /* animation */
+  transform: scale(0.5);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+
+.alert-content.display-alert {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* OUT animation */
+.alert-content.hide-alert {
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+
+#exit-alert-modal {
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 1.2rem;
+
+
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+
+  color: rgb(190, 190, 190);
+
+  border-radius: 6px;
+}
+
+#alert-message{
+  font-size: small;
+  line-height: 24px;
+}
+
+
+/* -------------------------------------------------- */
+
+
+#confirm-modal{
+   position: fixed;
+
+  inset: 0;
+  background: transparent;
+
+  padding: 24px;
+  z-index: 1004;
+
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.confirm-content{
+  flex: 0 1 375px;
+
+  padding: 32px;
+  background-color: rgba(0, 0, 0, 0.479);
+  backdrop-filter: blur(20px);
+  box-shadow: 4px 4px 15px 4px rgba(0, 0, 0, 0.39);
+
+  border-radius: 4px;
+
+  outline: 1px solid #ffffff1f;
+  position: relative;
+
+  /* animation */
+  transform: scale(0.5);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+
+
+.confirm-content.display-alert {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* OUT animation */
+.confirm-content.hide-alert {
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+#confirm-button-container{
+  padding-top: 16px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 4px;
+
+}
+
+ .confirm-btn{
+  background-color: #e7e7e7;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+
+}
+
+#confirm-cancel{
+  border: 1px solid rgb(160, 160, 160);
+  color: white;
+  background-color: transparent;
+}
+
+#exit-confirm-modal {
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 1.2rem;
+
+
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+
+  color: rgb(190, 190, 190);
+
+  border-radius: 6px;
+}
+
+#confirm-message{
+  line-height: 24px;
+}
+
+  /* ------------------------------------------- */
+
+
+@media only screen and (min-width: 600px){
+
+  #game-title {
+  font-size: 1.5rem;
+  padding-top: 6px;
+}
+
+  main{
+    display: flex;
+    gap: 12px;
+
+    padding: 4px 48px;
+    max-width: 768px;
+    margin: auto;
+
+ 
+  }
+
+  .colors-container{
+    flex: 1 1 400px;
+
+  }
+
+ 
+
+  #money-bet{
+   
+    flex: 1 1 270px;
+    padding-top: 0;
+    width: 270px;
+  }
+
+
+  #input-cash-in-out {
+  flex: 2 1 100px;
+}
+
+
+ footer {
+
+  padding-top: 16px;
+}
+
+}
+
+  /* --------------------------------------------- */
+
+@media only screen and (min-width: 768px) {
+
+  main{
+    display: block;
+  }
+
+   #money-bet{
+   
+    padding-top: 2rem;
+    width: 100%;
+  }
+
+  footer {
+    padding-top: 2rem;
+    
+  }
+
+  #exit-transaction-modal, #exit-how-to-play-modal  {
+    font-size: 2rem;
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+  }
+
+  
+
+  .transaction-item {
+    line-height: 24px;
+    font-size: medium;
+    flex: 1 1 176px;
+  }
+
+  #cashIn-cashOut-container {
+    flex: 1 2 300px;
+  }
+
+  #game-title {
+    font-size: 54px;
+  }
+
+  .color-pick {
+    height: 150px;
+    border: none;
+    cursor: pointer;
+    border-radius: .5rem;
+    flex: 1 1 150px;
+    box-shadow: inset 0px 2px 0px 0px #ffffff2d;
+    border: 1px solid #4242425d;
+  }
+
+
+
+  #play-btn-img {
+    width: 100px;
+    height: 100px;
+    flex: 0 0 100px;
+  }
+
+  .how-to-play-btn {
+    font-size: 1rem;
+    flex: 0 0 160px;
+  }
+
+  .transaction-btn {
+    font-size: 1rem;
+    flex: 0 0 160px;
+  }
+}
