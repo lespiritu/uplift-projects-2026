@@ -1,0 +1,32 @@
+/* Theme-by-name overrides for public invitation.
+   Class format: theme-<normalized-theme-name>
+   Example: "Elegant-Gold" -> .theme-elegant-gold
+*/
+
+.theme-elegant-gold {
+  --theme-primary: #3d2d12;
+  --theme-accent: #c69a2b;
+  --theme-soft: #fff8e8;
+  --theme-heading-font: "Garamond", "Times New Roman", serif;
+}
+
+.theme-ocean-blue {
+  --theme-primary: #0f2a47;
+  --theme-accent: #1da1f2;
+  --theme-soft: #ecf8ff;
+  --theme-heading-font: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.theme-blush-rose {
+  --theme-primary: #6d2a55;
+  --theme-accent: #d482b3;
+  --theme-soft: #fff2f8;
+  --theme-heading-font: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
+
+.theme-slate-silver {
+  --theme-primary: #1f2937;
+  --theme-accent: #667085;
+  --theme-soft: #f8fafc;
+  --theme-heading-font: "Georgia", "Times New Roman", serif;
+}

@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Dashboard | Web Invitation Creator</title>
+    <link rel="stylesheet" href="/client/assets/css/base.css" />
+    <link rel="stylesheet" href="/client/assets/css/userDashboard.css" />
+  </head>
+  <body class="dashboard-page">
+    <header class="dash-header">
+      <div>
+        <p class="dash-kicker">Web Invitation Creator</p>
+        <h1>Dashboard</h1>
+        <p class="dash-subtitle">Welcome, <span id="user-name">User</span></p>
+      </div>
+
+      <div class="dash-actions">
+        <button id="open-create-btn" class="btn btn-primary" type="button">
+          Create Invitation
+        </button>
+        <button id="refresh-btn" class="btn btn-secondary" type="button">
+          Refresh
+        </button>
+        <button id="logout-btn" class="btn btn-secondary" type="button">
+          Logout
+        </button>
+      </div>
+    </header>
+
+    <main class="dash-main">
+      <section id="create-wrap" class="create-wrap hidden">
+        <div class="create-head">
+          <h2>Create New Invitation</h2>
+          <button id="cancel-create-btn" class="btn btn-secondary" type="button">
+            Cancel
+          </button>
+        </div>
+
+        <form id="create-invitation-form" class="create-form">
+          <label for="title">Title</label>
+          <input id="title" name="title" type="text" required />
+
+          <label for="eventDate">Event Date</label>
+          <input id="eventDate" name="eventDate" type="datetime-local" required />
+
+          <label for="rsvpCutoffDate">RSVP Cutoff Date</label>
+          <input
+            id="rsvpCutoffDate"
+            name="rsvpCutoffDate"
+            type="datetime-local"
+            required
+          />
+
+          <label for="location">Location</label>
+          <input id="location" name="location" type="text" required />
+
+          <label for="eventType">Event Type</label>
+          <select id="eventType" name="eventType">
+            <option value="">Select type</option>
+            <option value="wedding">Wedding</option>
+            <option value="birthday">Birthday</option>
+            <option value="baptism">Baptism</option>
+            <option value="party">Party</option>
+            <option value="meeting">Meeting</option>
+            <option value="other">Other</option>
+          </select>
+
+          <label for="theme">Theme</label>
+          <input id="theme" name="theme" type="hidden" />
+          <div id="theme-card-list" class="theme-card-list"></div>
+          <p id="theme-help-text" class="field-help">
+            Choose an event type to load available themes.
+          </p>
+
+          <label for="eventTime">Event Time</label>
+          <input id="eventTime" name="eventTime" type="text" placeholder="5:00 PM" />
+
+          <label for="googleMapLink">Google Map Link</label>
+          <input
+            id="googleMapLink"
+            name="googleMapLink"
+            type="url"
+            placeholder="https://maps.google.com/..."
+          />
+
+          <label for="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            placeholder="Write your invitation message"
+          ></textarea>
+
+          <label for="images">Images (1 to 5)</label>
+          <input id="images" name="images" type="file" accept="image/*" multiple required />
+
+          <div class="create-actions">
+            <button id="submit-create-btn" class="btn btn-primary" type="submit">
+              Save Invitation
+            </button>
+          </div>
+          <p id="create-status-text" class="create-status"></p>
+        </form>
+      </section>
+
+      <section id="edit-wrap" class="create-wrap hidden">
+        <div class="create-head">
+          <h2>Edit Invitation</h2>
+          <button id="cancel-edit-btn" class="btn btn-secondary" type="button">
+            Cancel
+          </button>
+        </div>
+
+        <form id="edit-invitation-form" class="create-form">
+          <input id="edit-invitation-id" type="hidden" />
+
+          <label for="edit-title">Title</label>
+          <input id="edit-title" name="title" type="text" required />
+
+          <label for="edit-eventDate">Event Date</label>
+          <input id="edit-eventDate" name="eventDate" type="datetime-local" required />
+
+          <label for="edit-rsvpCutoffDate">RSVP Cutoff Date</label>
+          <input
+            id="edit-rsvpCutoffDate"
+            name="rsvpCutoffDate"
+            type="datetime-local"
+            required
+          />
+
+          <label for="edit-location">Location</label>
+          <input id="edit-location" name="location" type="text" required />
+
+          <label for="edit-eventType">Event Type</label>
+          <select id="edit-eventType" name="eventType">
+            <option value="">Select type</option>
+            <option value="wedding">Wedding</option>
+            <option value="birthday">Birthday</option>
+            <option value="baptism">Baptism</option>
+            <option value="party">Party</option>
+            <option value="meeting">Meeting</option>
+            <option value="other">Other</option>
+          </select>
+
+          <label for="edit-eventTime">Event Time</label>
+          <input id="edit-eventTime" name="eventTime" type="text" placeholder="5:00 PM" />
+
+          <label for="edit-googleMapLink">Google Map Link</label>
+          <input
+            id="edit-googleMapLink"
+            name="googleMapLink"
+            type="url"
+            placeholder="https://maps.google.com/..."
+          />
+
+          <label for="edit-message">Message</label>
+          <textarea
+            id="edit-message"
+            name="message"
+            rows="4"
+            placeholder="Write your invitation message"
+          ></textarea>
+
+          <div class="create-actions">
+            <button id="submit-edit-btn" class="btn btn-primary" type="submit">
+              Update Invitation
+            </button>
+          </div>
+          <p id="edit-status-text" class="create-status"></p>
+        </form>
+      </section>
+
+      <section class="dash-stats">
+        <article class="stat-card">
+          <p class="stat-label">Total Invitations</p>
+          <p class="stat-value" id="total-invitations">0</p>
+        </article>
+        <article class="stat-card">
+          <p class="stat-label">Published</p>
+          <p class="stat-value" id="published-invitations">0</p>
+        </article>
+        <article class="stat-card">
+          <p class="stat-label">Drafts</p>
+          <p class="stat-value" id="draft-invitations">0</p>
+        </article>
+      </section>
+
+      <section class="dash-list-wrap">
+        <div class="dash-list-head">
+          <h2>My Invitations</h2>
+          <p id="status-text">Loading invitations...</p>
+        </div>
+        <div id="invitation-list" class="invitation-list"></div>
+      </section>
+
+      <section id="rsvp-viewer-wrap" class="rsvp-viewer-wrap hidden">
+        <div class="rsvp-head">
+          <h2 id="rsvp-viewer-title">RSVP Results</h2>
+          <p id="rsvp-viewer-status">Select an invitation to view RSVP data.</p>
+        </div>
+
+        <div class="rsvp-summary">
+          <p><strong>Total:</strong> <span id="rsvp-total">0</span></p>
+          <p><strong>Yes:</strong> <span id="rsvp-yes">0</span></p>
+          <p><strong>No:</strong> <span id="rsvp-no">0</span></p>
+        </div>
+
+        <div id="rsvp-list" class="rsvp-list"></div>
+      </section>
+    </main>
+
+    <script src="/client/assets/js/createInvitation.js"></script>
+    <script src="/client/assets/js/rsvpViewer.js"></script>
+    <script src="/client/assets/js/userDashboard.js"></script>
+  </body>
+</html>
