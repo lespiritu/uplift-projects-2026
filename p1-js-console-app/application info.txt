@@ -1,0 +1,56 @@
+Library System Created by: Leoncio Espiritu
+
+Features:
+
+1. with log-in and sign-up
+    - you cannot log-in without an account in the system.
+    - you cannot enter the system using wrong password.
+    - you cannot enter if the user name you use during sign-up is aready exist in the system.
+    - successfully save account in the system data if you sign-up.
+
+2. Admin Features
+  - Admin can add books
+    * cannot input the same book name if the book is already in the system.
+    * Quantity must be a number. Invalid if you didn't enter the number.
+    * book will successfully save in the system data.
+  - Admin can see all member that borrowed
+
+  
+3. Members Features - as user only
+  - Display the Profile full name of the member Also if he/she has borrowed book in his/her profile.
+  - borrow book - member only.
+    * Need to enter a valid book name that is in the system.
+    * Display the book in your profile if you borrow the book
+    * Successfully borrowed book
+    * if the book is out of stock you cannot borrow book.
+    * You cannot borrow if you already borrowed the same book.
+    * Borrowed books will update the system quantity of the book. Will minus 1 if you borrow the book in the system.
+    * the system data for the book will updated. book.borrowedBy:[your]
+
+  
+4. admin and member
+    - search book
+      * Invalid notification if the book name you entered is not in the system data.
+    - show all books
+
+5. Color coding for the text.
+
+Red for Error - for example is Invalid Input
+Green for success - for example successfully log-In
+Yellow for the questions - for example “Enter User Name”
+Blue for selection - for example [1]-Log-In [2]-Sign-Up
+
+
+===============================================================
+
+For admin account:
+user name: Leon
+password: 123
+
+for member account:
+user name: Burning
+password: 123
+
+or you can create an account for member using sign up page.
+
+===============================================================
