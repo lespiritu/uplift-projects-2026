@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leo Espiritu</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="Icon" href="favicon.ico" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <header id="home">
+      <article id="profile">
+        <img
+          class="my-avatar"
+          src="./images/my-picture.png"
+          alt="leoncio espiritu avatar"
+        />
+        <h1 class="my-name">
+          <span class="my-name first-name">Leo</span> Espiritu
+        </h1>
+        <h3 class="profession">Full Stack Developer</h3>
+        <p>Building intuitive web solutions, from front-end to back-end!</p>
+
+        <button class="resume-btn">
+          <a
+            href="./Leon_FullStackDeveloper_2026.pdf"
+            download="leoncio-Espiritu-dev-resume"
+            >RESUME</a
+          >
+        </button>
+
+        <!-- This code is for mobile menu or navigation -->
+        <div class="burger-container">
+          <input type="checkbox" id="chk-toggle" />
+          <label id="burger" for="chk-toggle">
+            <div id="burger-1"></div>
+            <div id="burger-2"></div>
+            <div id="burger-3"></div>
+          </label>
+          <nav class="nav-mobile">
+            <ul>
+              <li>
+                <span
+                  ><img class="btn-icon" src="./images/icons/home.svg" alt=""
+                /></span>
+                <a href="#">Home</a>
+              </li>
+              <li>
+                <img class="btn-icon" src="./images/icons/info.svg" alt="" /><a
+                  href="#about"
+                  >About</a
+                >
+              </li>
+              <li>
+                <img
+                  class="btn-icon"
+                  src="./images/icons/project.svg"
+                  alt=""
+                /><a href="#projects">Projects</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- this code for navigation is for wide screen only. it is default display: none in mobile -->
+        <nav class="nav-wide-screen">
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+          </ul>
+        </nav>
+      </article>
+
+      <article class="contack-link">
+        <a
+          href="https://www.linkedin.com/in/leoncio-espiritu-016707153/"
+          target="_blank"
+          title="linkedIn"
+        >
+          <img
+            src="./images/social-media-images/linkedin.svg"
+            alt="linkedIn image"
+          />
+        </a>
+
+        <a href="https://github.com/lespiritu" target="_blank" title="GitHub">
+          <img
+            src="./images/social-media-images/github.svg"
+            alt="github image"
+          />
+        </a>
+        <a
+          href="https://gitlab.com/espirituleoncio7"
+          target="_blank"
+          title="GitLab"
+        >
+          <img
+            src="./images/social-media-images/gitlab.svg"
+            alt="gitlab image"
+          />
+        </a>
+
+        <a
+          href="mailto:espirituleoncio@gmail.com"
+          target="_blank"
+          title="Send email"
+          ><img
+            id="gmail-icon"
+            src="./images/social-media-images/gmail.svg"
+            alt="gmail icon"
+        /></a>
+      </article>
+    </header>
+
+    <main>
+      <section class="about section-dark" id="about">
+        <h3 class="section-heading about-heading">About</h3>
+        <div class="about-content">
+          <p>
+            For over 7 years, I successfully work as a freelancer. I work as a
+            designer, photo editor and as a real estate agent. This experienced
+            helps me to grow and gained self desipline and time management.
+          </p>
+
+          <p>
+            I recently completed a Full Stack Web Development training from
+            Uplift Bootcamp to transition into a tech career. I am now
+            proficient in MERN (MongoDB, Express, React, Node.js) stack.
+          </p>
+
+          <p>
+            I am looking to land a job for me to gain professional experienced
+            in real world, to contribute in development and continously expand
+            my technical skill set.
+          </p>
+        </div>
+
+        <div class="skill-sets">
+          <h4 class="skills-heading" id="skills-heading">Skills</h4>
+          <div class="skills-container">
+            <img
+              src="./images/tech-skills/html5-brands-solid-full.svg"
+              alt="html icon"
+              class="skill-item"
+              title="html"
+            />
+
+            <img
+              src="./images/tech-skills/css-brands-solid-full.svg"
+              alt="css icon"
+              class="skill-item"
+              title="css"
+            />
+            <img
+              src="./images/tech-skills/js-brands-solid-full.svg"
+              alt="javascript icon"
+              class="skill-item"
+              title="javascript"
+            />
+            <img
+              src="./images/tech-skills/square-git-brands-solid-full.svg"
+              alt="git icon"
+              class="skill-item"
+              title="git"
+            />
+            <img
+              src="./images/tech-skills/react-brands-solid-full.svg"
+              alt="reactjs icon"
+              class="skill-item"
+              title="reactjs"
+            />
+            <img
+              src="./images/tech-skills/node-js-brands-solid-full.svg"
+              alt="nodejs icon"
+              class="skill-item"
+              title="nodejs"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="projects section-light">
+        <article class="projects-container">
+          <h3 class="section-heading project-heading">Projects</h3>
+
+          <div class="project-card">
+            <div class="project-links-container">
+              <a
+                class="project-link-item"
+                href="https://gitlab.com/uplift-code-camp/students/batch-28/leoncio/projects"
+                target="_blank"
+                ><img
+                  class="project-link"
+                  src="./images/icons/arrow-link.svg"
+                  alt=""
+              /></a>
+            </div>
+            <img
+              class="project-image"
+              src="./images/projects/console-app-js.jpg"
+              alt=""
+            />
+            <div class="card-content">
+              <h4 class="project-name">Console App Library System</h4>
+              <p class="project-content">
+                This application is from my bootcamp project. This application
+                has a admin and user interface. It has a sign-in and sign-up
+                page. Admin can add book and member can borrow book. It has a
+                strong validation.
+              </p>
+
+              <ul class="used-skills">
+                <li class="skills">javascript</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <span class="project-links-container"
+              ><a
+                class="project-link-item"
+                href="https://leon-espiritu.netlify.app/"
+                target="_blank"
+                ><img
+                  class="project-link"
+                  src="./images/icons/arrow-link.svg"
+                  alt="" /></a
+            ></span>
+            <img
+              class="project-image"
+              src="./images/projects/web-portfolio.jpg"
+              alt=""
+            />
+            <div class="card-content">
+              <h4 class="project-name">Web Portfolio</h4>
+              <p class="project-content">
+                This project is from a bootcamp. This is my personal web
+                portfolio, showing my profile with my projects. It showcase a
+                web responsive design from mobile device to a wide screen
+                device.
+              </p>
+
+              <ul class="used-skills">
+                <li class="skills">html</li>
+                <li class="skills">css</li>
+                <li class="skills">syemantic html</li>
+                <li class="skills">responsive design</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <span class="project-links-container"
+              ><a
+                class="project-link-item"
+                href="https://color-game-leo.netlify.app/"
+                target="_blank"
+                ><img
+                  class="project-link"
+                  src="./images/icons/arrow-link.svg"
+                  alt="" /></a
+            ></span>
+            <img
+              class="project-image"
+              src="./images/projects/leo-project3.jpg"
+              alt=""
+            />
+            <div class="card-content">
+              <h4 class="project-name">Color Game</h4>
+              <p class="project-content">
+                This project is a mini project with uplift bootcamp. It a good
+                frontend features like the prompt is a modal. It also has some
+                money transactio features. You can play it or with friends.
+              </p>
+
+              <ul class="used-skills">
+                <li class="skills">Vanilla Javascript</li>
+                <li class="skills">DOM Manipulation</li>
+                <li class="skills">Responsive design</li>
+                <li class="skills">CSS</li>
+                <li class="skills">HTML</li>
+                <li class="skills">Local Storage</li>
+                <li class="skills">API using AI Cohere</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <span class="project-links-container"
+              ><a class="project-link-item" href="#" target="_blank"
+                ><img
+                  class="project-link"
+                  src="./images/icons/arrow-link.svg"
+                  alt="" /></a
+            ></span>
+            <img
+              class="project-image"
+              src="./images/projects/sample2.webp"
+              alt=""
+            />
+            <div class="card-content">
+              <h4 class="project-name">Dummy Projet Only</h4>
+              <p class="project-content">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo
+                qui veniam atque. Facilis impedit unde possimus accusamus
+                quibusdam aut provident beatae maiores eius! Sed, consequatur
+                mollitia? Enim, autem. Ad, corrupti.
+              </p>
+
+              <ul class="used-skills">
+                <li class="skills">javascript</li>
+                <li class="skills">nodejs</li>
+                <li class="skills">React JS</li>
+                <li class="skills">CSS</li>
+                <li class="skills">HTML</li>
+                <li class="skills">Express JS</li>
+                <li class="skills">MongoDB</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

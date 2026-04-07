@@ -1,0 +1,29 @@
+:root {
+  --bg-1: #f6efe4;
+  --bg-2: #e8f1ff;
+  --card: #ffffff;
+  --text: #172032;
+  --muted: #5d6677;
+  --accent: #0b8a7a;
+  --accent-strong: #08685c;
+  --outline: #d7deea;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+}
