@@ -22,9 +22,9 @@ const Button = ({
           type={type}
           disabled={disabled}
           onClick={onClick}
-          className={` cursor-pointer rounded px-6 py-2 overflow-hidden group bg-linear-to-r from-surface to-surface relative hover:bg-linear-to-r hover:from-surface hover:to-surface text-white transition-all ease-out duration-300 disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
+          className={` cursor-pointer rounded px-6 py-2 overflow-hidden group bg-linear-to-r from-primary to-primary relative hover:bg-linear-to-r hover:from-primary hover:to-primary text-text-dark2 transition-all ease-out duration-300 disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
         >
-          <span className="absolute right-0 w-10 h-full top-0 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 -skew-x-12 group-hover:-translate-x-30 ease"></span>
+          <span className="absolute right-0 w-10 h-full top-0 transition-all duration-1000 transform translate-x-12 bg-surface opacity-10 -skew-x-12 group-hover:-translate-x-30 ease"></span>
           <span className="relative font-semibold">{children}</span>
         </button>
       );
@@ -34,9 +34,9 @@ const Button = ({
           type={type}
           disabled={disabled}
           onClick={onClick}
-          className={` cursor-pointer rounded px-3 py-1 overflow-hidden group bg-linear-to-r from-primary to-primary relative hover:bg-linear-to-r hover:from-primary hover:to-primary text-white transition-all ease-out duration-300 disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
+          className={` cursor-pointer rounded px-3 py-1 overflow-hidden group bg-linear-to-r from-primary to-primary relative hover:bg-linear-to-r hover:from-primary hover:to-primary text-text-dark2 transition-all ease-out duration-300 disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
         >
-          <span className="absolute right-0 w-10 h-full top-0 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 -skew-x-12 group-hover:-translate-x-30 ease"></span>
+          <span className="absolute right-0 w-10 h-full top-0 transition-all duration-1000 transform translate-x-12 bg-surface opacity-10 -skew-x-12 group-hover:-translate-x-30 ease"></span>
           <span className="relative font-semibold text-sm">{children}</span>
         </button>
       );
@@ -48,7 +48,7 @@ const Button = ({
           onClick={onClick}
           className={` cursor-pointer rounded px-6 py-2 overflow-hidden group bg-linear-to-r from-green-100 to-green-100 relative hover:bg-linear-to-r hover:from-green-100 hover:to-green-100 text-secondary transition-all ease-out duration-300 disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
         >
-          <span className="absolute right-0 w-10 h-full top-0 transition-all duration-1000 transform translate-x-12 bg-white opacity-50 -skew-x-12 group-hover:-translate-x-30 ease"></span>
+          <span className="absolute right-0 w-10 h-full top-0 transition-all duration-1000 transform translate-x-12 bg-surface opacity-50 -skew-x-12 group-hover:-translate-x-30 ease"></span>
           <span className="relative font-semibold">{children}</span>
         </button>
       );
@@ -96,10 +96,10 @@ const Button = ({
           type={type}
           disabled={disabled}
           onClick={onClick}
-          className={`relative cursor-pointer rounded px-6 py-2 overflow-hidden group  hover:bg-linear-to-r border border-border text-primary transition-all ease-out duration-300 disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
+          className={`relative cursor-pointer rounded bg-secondary/14  px-6 py-2 overflow-hidden group  hover:bg-linear-to-r border border-primary  text-primary transition-all ease-out duration-300 disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
         >
           <span className="absolute right-0 w-10 h-full top-0 transition-all duration-1000 transform translate-x-12 bg-primary opacity-10 -skew-x-12 group-hover:-translate-x-30 ease"></span>
-          <span className="relative font-semibold">{children}</span>
+          <span className="relative ">{children}</span>
         </button>
       );
     case "outline-small":
@@ -108,10 +108,10 @@ const Button = ({
           type={type}
           disabled={disabled}
           onClick={onClick}
-          className={`relative cursor-pointer rounded px-3 py-1 overflow-hidden group  hover:bg-linear-to-r border border-border text-primary transition-all ease-out duration-300 disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
+          className={`relative cursor-pointer rounded px-3 py-1 overflow-hidden group  hover:bg-linear-to-r border border-primary font-light text-primary transition-all ease-out duration-300 disabled:cursor-not-allowed disabled:opacity-60 ${className}`}
         >
           <span className="absolute right-0 w-10 h-full top-0 transition-all duration-1000 transform translate-x-12 bg-primary opacity-10 -skew-x-12 group-hover:-translate-x-30 ease"></span>
-          <span className="relative font-semibold">{children}</span>
+          <span className="relative font-semibold text-sm">{children}</span>
         </button>
       );
     default:

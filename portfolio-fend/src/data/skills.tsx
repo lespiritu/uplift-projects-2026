@@ -36,7 +36,7 @@ const skills: Skill[] = [
   {
     skillName: "CSS",
     skillIcon: FaCss3,
-    level: 80,
+    level: 90,
     category: Category.Frontend,
   },
 
@@ -56,21 +56,21 @@ const skills: Skill[] = [
   {
     skillName: "Node.js",
     skillIcon: FaNodeJs,
-    level: 70,
+    level: 75,
     category: Category.Backend,
   },
 
   {
     skillName: "Express",
     skillIcon: SiExpress,
-    level: 70,
+    level: 75,
     category: Category.Backend,
   },
 
   {
     skillName: "MongoDB",
     skillIcon: SiMongodb,
-    level: 65,
+    level: 75,
     category: Category.Backend,
   },
 
@@ -84,14 +84,14 @@ const skills: Skill[] = [
   {
     skillName: "TypeScript",
     skillIcon: BsTypescript,
-    level: 75,
+    level: 60,
     category: Category.Frontend,
   },
 
   {
     skillName: "Adobe Photoshop",
     skillIcon: TbBrandAdobePhotoshop,
-    level: 85,
+    level: 90,
     category: Category.Other,
   },
 ];

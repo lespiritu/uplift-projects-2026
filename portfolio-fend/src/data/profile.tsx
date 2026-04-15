@@ -12,11 +12,12 @@ interface profile {
   linkedin?: string;
   github?: string;
   gitlab?: string;
+  facebook?: string;
   profilePicture: string;
 }
 
 const profile: profile = {
-  name: "Leoncio Espiritu",
+  name: "Leo Espiritu",
   nickname: "Leo",
   email: "espirituleoncio7@gmail.com",
   phone: "09157230777",
@@ -29,7 +30,8 @@ const profile: profile = {
   linkedin: "https://www.linkedin.com/in/leoncio-espiritu/",
   github: "https://github.com/lespiritu",
   gitlab: "https://gitlab.com/espirituleoncio7",
-  profilePicture: "path/to/your/profile-picture.jpg",
+  facebook: "https://www.facebook.com/espirituleoncio7",
+  profilePicture: "/me-1.jpg",
 };
 
 export default profile;

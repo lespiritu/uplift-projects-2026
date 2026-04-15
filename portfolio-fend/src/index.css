@@ -1,44 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Mrs+Saint+Delafield&display=swap");
+
 @import "tailwindcss";
 
 @theme {
   --color-background: black;
-  --color-surface: #0f172a;
-  --color-surface-alt: #111827;
-  --color-primary: #38bdf8;
+  --color-surface: #001b22;
+  --color-surface-alt: #051f28;
+  --color-primary: #00e794;
   --color-secondary: #00e5c8;
   --color-accent: #00ff92;
-  --color-text: #ecfeff;
+  --color-text: #9ecacd;
   --color-text-muted: #a5f3fc;
   --color-border: #164e63;
 
   --color-text-dark: #117c89;
-  --color-text-light: #8ad9c4;
+  --color-text-dark2: #285c67;
+  --color-text-light: #3fbbab;
 }
 
 :root {
   color: var(--color-text);
+  background-color: #000000;
+  opacity: 1;
+  background-image: radial-gradient(#002830 0.75px, #000000 0.75px);
+  background-size: 15px 15px;
   background-color: var(--color-background);
 }
+.my-title {
+  font-family: "Monoton", sans-serif;
+}
 
-/* Additional for scrol */
+.my-name-footer {
+  font-family: "Mrs Saint Delafield", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bg-light {
+  /* background-color: #00e1a1;
+  opacity: 1;
+  background-image: radial-gradient(#d5fff4 0.65px, #00e1a1 0.65px);
+  background-size: 13px 13px; */
+  background-color: #00dab5;
+  opacity: 1;
+  background-image: radial-gradient(#ffffff 0.55px, #00dab5 0.55px);
+  background-size: 11px 11px;
+}
+
+@keyframes photo-ring-spin {
+  from {
+    transform: translate(0.75rem, -0.75rem) rotate(0deg);
+  }
+  to {
+    transform: translate(0.75rem, -0.75rem) rotate(360deg);
+  }
+}
+
+.animate-photo-ring {
+  animation: photo-ring-spin 12s linear infinite;
+}
+
+/* Additional for scroll */
 html {
   scroll-behavior: smooth;
 }
 
 body::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 body::-webkit-scrollbar-track {
-  background-color: #fffbeb;
+  background-color: transparent;
 }
 
 body::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px #fe9a00;
+  box-shadow: inset 0 0 6px transparent;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #fe9a00;
+  background-color: yellow;
 
   border-radius: 6px;
 }

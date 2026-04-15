@@ -1,11 +1,18 @@
 import { useState } from "react";
+import logo from "/leo_logo_green.png";
+import { MdOutlineHome } from "react-icons/md";
+import { RiQuestionAnswerLine } from "react-icons/ri";
+
+import { GoProjectSymlink } from "react-icons/go";
+import { RiContactsFill } from "react-icons/ri";
+import { CiPen } from "react-icons/ci";
 
 const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "#home", navIcon: MdOutlineHome },
+  { label: "About", href: "#about", navIcon: RiQuestionAnswerLine },
+  { label: "Skills", href: "#skills", navIcon: CiPen },
+  { label: "Projects", href: "#projects", navIcon: GoProjectSymlink },
+  { label: "Contact", href: "#contact", navIcon: RiContactsFill },
 ];
 
 const Navigation = () => {
@@ -13,14 +20,11 @@ const Navigation = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 border-b border-border/50 bg-text-light backdrop-blur">
-        <nav className="mx-auto w-full max-w-6xl px-4 py-4 sm:px-6 lg:px-8">
+      <header className="sticky top-0 z-50 bg-surface/40 backdrop-blur-2xl border-b border-secondary/10">
+        <nav className="mx-auto w-full max-w-6xl px-4 py-2 md:py-8 sm:px-6 lg:px-8 ">
           <div className="flex items-center justify-between">
-            <a
-              href="#home"
-              className="text-lg font-bold tracking-wide text-text transition-colors hover:text-primary"
-            >
-              Leoncio Espiritu
+            <a href="#home">
+              <img src={logo} className="w-10 md:w-16" alt="my logo" />
             </a>
 
             <button
@@ -28,7 +32,7 @@ const Navigation = () => {
               aria-label="Toggle navigation menu"
               aria-expanded={isOpen}
               onClick={() => setIsOpen((open) => !open)}
-              className="relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-text transition-colors hover:border-primary hover:text-primary md:hidden"
+              className="relative inline-flex h-11 w-11 items-center justify-center rounded-full text-text-light transition-colors md:hidden"
             >
               <span
                 className={`absolute h-0.5 w-5 rounded bg-current transition-transform duration-300 ${
@@ -47,24 +51,28 @@ const Navigation = () => {
               />
             </button>
 
-            <ul className="hidden items-center gap-3 text-sm font-medium text-text-muted md:flex md:gap-5">
-              {navItems.map((item) => (
-                <li key={item.href}>
-                  <a
-                    href={item.href}
-                    className="transition-colors hover:text-primary"
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+            <ul className="hidden items-center gap-3 text-primary md:flex md:gap-5">
+              {navItems.map((item) => {
+                const Icon = item.navIcon;
+                return (
+                  <li key={item.href}>
+                    <a
+                      href={item.href}
+                      className="transition-colors hover:text-text flex items-center gap-1"
+                    >
+                      <Icon />
+                      {item.label}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </nav>
       </header>
 
       <div
-        className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-40 bg-black/40 backdrop-blur-2xl  transition-opacity duration-300 md:hidden ${
           isOpen
             ? "pointer-events-auto opacity-100"
             : "pointer-events-none opacity-0"
@@ -73,30 +81,29 @@ const Navigation = () => {
       />
 
       <aside
-        className={`fixed top-0 right-0 z-50 flex h-screen w-72 max-w-[85vw] flex-col border-l border-border bg-amber-500 px-6 py-6 shadow-2xl transition-transform duration-300 md:hidden ${
+        className={`fixed top-0 right-0 z-50 flex h-screen w-72 max-w-[85vw] flex-col  bg-background/70 backdrop-blur-3xl px-6 py-6 shadow-2xl transition-transform duration-300 md:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="mb-8 flex items-center justify-between">
-          <span className="text-base font-semibold text-text">Menu</span>
           <button
             type="button"
             aria-label="Close navigation menu"
             onClick={() => setIsOpen(false)}
-            className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-text transition-colors hover:border-primary hover:text-primary"
+            className=" ml-auto relative inline-flex h-10 w-10 items-center justify-center rounded-full  text-text transition-colors hover:border-primary hover:text-accent"
           >
             <span className="absolute h-0.5 w-5 rotate-45 rounded bg-current" />
             <span className="absolute h-0.5 w-5 -rotate-45 rounded bg-current" />
           </button>
         </div>
 
-        <ul className="grid gap-2 text-base font-medium text-text-muted">
+        <ul className="grid gap-2  text-text-light">
           {navItems.map((item) => (
             <li key={item.href}>
               <a
                 href={item.href}
                 onClick={() => setIsOpen(false)}
-                className="block rounded-lg px-3 py-3 transition-colors hover:bg-surface-alt hover:text-primary"
+                className="block  px-3 py-3 transition-colors hover:bg-surface-alt/20 border-b border-border/30"
               >
                 {item.label}
               </a>
