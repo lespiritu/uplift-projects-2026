@@ -1,5 +1,22 @@
 import Section from "../components/Section";
 import skills from "../data/skills";
+import { motion, type Variants } from "motion/react";
+
+const categoryVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: index * 0.14,
+      duration: 0.55,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+};
 
 const Skills = () => {
   const categories = ["Frontend", "Backend", "Other"] as const;
@@ -24,9 +41,14 @@ const Skills = () => {
           );
 
           return (
-            <div
+            <motion.div
               key={category}
               className="rounded-2xl border border-border/30 bg-surface/40 p-6"
+              variants={categoryVariants}
+              custom={categories.indexOf(category)}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.25 }}
             >
               <div className="mb-6 flex items-center justify-between">
                 <h2 className="text-2xl text-text">{category}</h2>
@@ -62,16 +84,23 @@ const Skills = () => {
                       </div>
 
                       <div className="h-2 overflow-hidden rounded-full bg-surface-alt">
-                        <div
+                        <motion.div
                           className="h-full rounded-full bg-linear-to-r from-primary to-secondary"
-                          style={{ width: `${skill.level}%` }}
+                          initial={{ width: 0 }}
+                          whileInView={{ width: `${skill.level}%` }}
+                          viewport={{ once: true, amount: 0.7 }}
+                          transition={{
+                            delay: categories.indexOf(category) * 0.14,
+                            duration: 1,
+                            ease: [0.22, 1, 0.36, 1],
+                          }}
                         />
                       </div>
                     </div>
                   );
                 })}
               </div>
-            </div>
+            </motion.div>
           );
         })}
       </div>

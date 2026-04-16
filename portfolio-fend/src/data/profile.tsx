@@ -14,6 +14,7 @@ interface profile {
   gitlab?: string;
   facebook?: string;
   profilePicture: string;
+  logo: string;
 }
 
 const profile: profile = {
@@ -32,6 +33,7 @@ const profile: profile = {
   gitlab: "https://gitlab.com/espirituleoncio7",
   facebook: "https://www.facebook.com/espirituleoncio7",
   profilePicture: "/me-1.jpg",
+  logo: "/leo_logo_green.png",
 };
 
 export default profile;

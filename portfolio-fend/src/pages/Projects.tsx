@@ -3,16 +3,54 @@ import projects from "../data/projects";
 import { FaGitlab } from "react-icons/fa6";
 import { FaGithub } from "react-icons/fa";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { motion, type Variants } from "motion/react";
+
+const cardVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 24,
+  },
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: index * 0.12,
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+};
+
+const contentVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 18,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.18,
+      duration: 0.55,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
 
 const Projects = () => {
-  const displayProjects = projects.map((project) => (
-    <div
+  const displayProjects = [...projects].reverse().map((project, index) => (
+    <motion.div
       key={project.id}
-      className="h-full  transition-all duration-300 ease-in-out"
+      className="h-full transition-all duration-300 ease-in-out"
+      variants={cardVariants}
+      custom={index}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.2 }}
     >
       <div
         id="card-project"
-        className="group relative h-full min-h-80 overflow-hidden rounded-xl border border-secondary/10 bg-primary"
+        className="group relative h-full min-h-80 overflow-hidden rounded-xl border border-secondary/10 bg-background-light2"
       >
         <div
           className="absolute inset-0 bg-cover bg-center opacity-70 transition-opacity md:group-hover:opacity-50"
@@ -20,7 +58,10 @@ const Projects = () => {
             backgroundImage: `url(${project.image})`,
           }}
         ></div>
-        <div className="relative z-10 flex h-full w-full flex-col items-start gap-4  border border-secondary bg-white/92 p-2 opacity-100    md:-translate-y-full group-hover:translate-y-0 transition-all duration-300 ease-in-out">
+        <motion.div
+          className="relative z-10 flex h-full w-full flex-col items-start gap-4 border border-secondary bg-light1-pattern p-2 opacity-100 md:-translate-y-full group-hover:translate-y-0 transition-all duration-300 ease-in-out"
+          variants={contentVariants}
+        >
           <div className=" p-6 rounded-2xl">
             <div className="flex gap-2 text-xl text-text-dark2 justify-end">
               {project.gitlabLink && (
@@ -69,9 +110,9 @@ const Projects = () => {
               ))}
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   ));
   return (
     <Section id="projects" className="min-h-screen px-8 " variant="dark">
@@ -81,9 +122,9 @@ const Projects = () => {
           Here are some of the projects I've worked on recently.
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <motion.div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {displayProjects}
-      </div>
+      </motion.div>
     </Section>
   );
 };

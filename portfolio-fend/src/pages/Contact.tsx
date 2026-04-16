@@ -3,6 +3,38 @@ import Button from "../components/Button";
 import profile from "../data/profile";
 import { FaFacebook, FaGithub, FaGitlab, FaLinkedin } from "react-icons/fa";
 import { VscSend } from "react-icons/vsc";
+import { motion, type Variants } from "motion/react";
+
+const contentVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 28,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  },
+};
+
+const panelVariants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 32,
+  },
+  visible: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.12 + index * 0.16,
+      duration: 0.65,
+      ease: [0.22, 1, 0.36, 1],
+    },
+  }),
+};
 
 const Contact = () => {
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -27,8 +59,14 @@ const Contact = () => {
 
   return (
     <Section id="contact" className="min-h-screen px-8" variant="dark">
-      <div className="py-8">
-        <div className="mb-10 max-w-2xl">
+      <motion.div
+        className="py-8"
+        variants={contentVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+      >
+        <motion.div className="mb-10 max-w-2xl" variants={contentVariants}>
           <p className="mb-3 text-sm uppercase tracking-[0.35em] text-primary">
             Contact
           </p>
@@ -37,12 +75,14 @@ const Contact = () => {
             Have a project in mind or want to work together? Send me a message
             and I&apos;ll get back to you.
           </p>
-        </div>
+        </motion.div>
 
         <div className="md:flex md:gap-12">
-          <form
+          <motion.form
             onSubmit={handleSubmit}
             className=" flex-1 grid gap-5 rounded-lg border border-accent/20 bg-secondary/20 p-6 md:p-8"
+            variants={panelVariants}
+            custom={0}
           >
             <div className="grid gap-2">
               <label htmlFor="name" className="text-sm text-text-light">
@@ -93,9 +133,14 @@ const Contact = () => {
                 Send Message
               </span>
             </Button>
-          </form>
+          </motion.form>
 
-          <div id="social-links" className="mt-8 flex-1 md:mt-0">
+          <motion.div
+            id="social-links"
+            className="mt-8 flex-1 md:mt-0"
+            variants={panelVariants}
+            custom={1}
+          >
             <div className="rounded-lg border border-accent/20 bg-secondary/20 p-6 md:p-8">
               <p className="mb-4 text-sm uppercase tracking-[0.35em] text-primary">
                 Social Links
@@ -143,9 +188,9 @@ const Contact = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </Section>
   );
 };

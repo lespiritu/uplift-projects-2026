@@ -4,11 +4,15 @@
 
 @theme {
   --color-background: black;
+  --color-background-light1: #9effda;
+  --color-background-light2: #00a795;
+  --color-background-paper: #f5fffd;
   --color-surface: #001b22;
   --color-surface-alt: #051f28;
   --color-primary: #00e794;
   --color-secondary: #00e5c8;
   --color-accent: #00ff92;
+  --color-accent-dot: #5dffec;
   --color-text: #9ecacd;
   --color-text-muted: #a5f3fc;
   --color-border: #164e63;
@@ -45,6 +49,25 @@
   opacity: 1;
   background-image: radial-gradient(#ffffff 0.55px, #00dab5 0.55px);
   background-size: 11px 11px;
+}
+
+.bg-light1 {
+  background-color: #f5fffd;
+  opacity: 1;
+  background-image: radial-gradient(
+    #5dffec 0.35000000000000003px,
+    #f5fffd 0.35000000000000003px
+  );
+  background-size: 7px 7px;
+}
+
+@utility bg-light1-pattern {
+  background-color: var(--color-background-paper);
+  background-image: radial-gradient(
+    var(--color-accent-dot) 0.35px,
+    var(--color-background-paper) 0.35px
+  );
+  background-size: 7px 7px;
 }
 
 @keyframes photo-ring-spin {

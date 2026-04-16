@@ -2,6 +2,7 @@ import Button from "../components/Button";
 import Section from "../components/Section";
 import profile from "../data/profile";
 import { GoDownload } from "react-icons/go";
+import { TextShimmer } from "@/components/core/text-shimmer";
 
 const Home = () => {
   const handleResumeDownload = () => {
@@ -27,10 +28,13 @@ const Home = () => {
           </div>
         </div>
         <div className=" flex-50 py-8 flex flex-col gap-4 ">
-          <h1 className=" my-title text-6xl md:text-7xl text-text">
+          <TextShimmer
+            as="h1"
+            className=" my-title text-6xl md:text-7xl text-text"
+          >
             {profile.name}
-          </h1>
-          <p className="  self-start px-2 bg-surface tracking-widest text-text-light">
+          </TextShimmer>
+          <p className="self-start bg-surface px-2 tracking-widest text-sm uppercase">
             {profile.jobTitle}
           </p>
           <p className="py-2 text-text-light tracking-wide">{profile.about}</p>

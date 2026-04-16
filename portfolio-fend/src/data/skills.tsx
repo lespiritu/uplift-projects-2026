@@ -8,6 +8,7 @@ import { SiMongodb } from "react-icons/si";
 import { FaGit } from "react-icons/fa";
 import { BsTypescript } from "react-icons/bs";
 import { TbBrandAdobePhotoshop } from "react-icons/tb";
+import { SiTailwindcss } from "react-icons/si";
 
 export const Category = {
   Frontend: "Frontend",
@@ -39,9 +40,8 @@ const skills: Skill[] = [
     level: 90,
     category: Category.Frontend,
   },
-
   {
-    skillName: "JavaScript",
+    skillName: "JavaScript - (ES6)",
     skillIcon: IoLogoJavascript,
     level: 85,
     category: Category.Frontend,
@@ -50,6 +50,12 @@ const skills: Skill[] = [
   {
     skillName: "React.js",
     skillIcon: FaReact,
+    level: 80,
+    category: Category.Frontend,
+  },
+  {
+    skillName: "Tailwindcss",
+    skillIcon: SiTailwindcss,
     level: 80,
     category: Category.Frontend,
   },

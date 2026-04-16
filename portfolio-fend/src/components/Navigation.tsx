@@ -1,3 +1,4 @@
+import profile from "@/data/profile";
 import { useState } from "react";
 import logo from "/leo_logo_green.png";
 import { MdOutlineHome } from "react-icons/md";
@@ -10,8 +11,8 @@ import { CiPen } from "react-icons/ci";
 const navItems = [
   { label: "Home", href: "#home", navIcon: MdOutlineHome },
   { label: "About", href: "#about", navIcon: RiQuestionAnswerLine },
-  { label: "Skills", href: "#skills", navIcon: CiPen },
   { label: "Projects", href: "#projects", navIcon: GoProjectSymlink },
+  { label: "Skills", href: "#skills", navIcon: CiPen },
   { label: "Contact", href: "#contact", navIcon: RiContactsFill },
 ];
 
@@ -85,12 +86,16 @@ const Navigation = () => {
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <div className="mb-8 flex items-center justify-between">
+        <div className="mb-8 flex items-center  justify-between">
+          <h2 className="my-name-footer pt-4 text-4xl text-text ">
+            {profile.name}
+          </h2>
+
           <button
             type="button"
             aria-label="Close navigation menu"
             onClick={() => setIsOpen(false)}
-            className=" ml-auto relative inline-flex h-10 w-10 items-center justify-center rounded-full  text-text transition-colors hover:border-primary hover:text-accent"
+            className="border border-border ml-auto relative inline-flex h-10 w-10 items-center justify-center rounded-full  text-text transition-colors hover:border-primary hover:text-accent"
           >
             <span className="absolute h-0.5 w-5 rotate-45 rounded bg-current" />
             <span className="absolute h-0.5 w-5 -rotate-45 rounded bg-current" />
@@ -98,17 +103,23 @@ const Navigation = () => {
         </div>
 
         <ul className="grid gap-2  text-text-light">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="block  px-3 py-3 transition-colors hover:bg-surface-alt/20 border-b border-border/30"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
+          {navItems.map((item) => {
+            const Icon = item.navIcon;
+            return (
+              <li key={item.href}>
+                <a
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                  className="block  px-3 py-3 transition-colors hover:bg-surface-alt/20 border-b border-border/30"
+                >
+                  <span className="flex gap-2 items-center">
+                    <Icon />
+                    {item.label}
+                  </span>
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </aside>
     </>

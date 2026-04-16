@@ -22,9 +22,13 @@ const Footer = () => {
             <p className="text-sm uppercase tracking-[0.3em] text-primary">
               {profile.jobTitle}
             </p>
-            <h2 className="my-name-footer mt-3 text-5xl text-text">
-              {profile.name}
-            </h2>
+            <span className="flex items-center gap-2">
+              <img className="w-10" src={profile.logo} alt="leoncio logo" />
+
+              <h2 className="my-name-footer mt-3 pt-6 text-5xl text-text ">
+                {profile.name}
+              </h2>
+            </span>
           </div>
           <p className="max-w-md text-sm leading-7 text-text-light">
             Building clean, responsive, and user-focused web applications with
