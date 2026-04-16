@@ -8,15 +8,14 @@ import { motion, type Variants } from "motion/react";
 const cardVariants: Variants = {
   hidden: {
     opacity: 0,
-    y: 24,
   },
   visible: (index: number) => ({
     opacity: 1,
-    y: 0,
+
     transition: {
-      delay: index * 0.12,
-      duration: 0.6,
-      ease: [0.22, 1, 0.36, 1],
+      delay: index * 0.4,
+      duration: 0.5,
+      ease: [1, 0.4, 0.4, 1],
     },
   }),
 };
@@ -50,7 +49,7 @@ const Projects = () => {
     >
       <div
         id="card-project"
-        className="group relative h-full min-h-80 overflow-hidden rounded-xl border border-secondary/10 bg-background-light2"
+        className="group relative h-full min-h-80 overflow-hidden rounded-4xl border border-dashed border-accent bg-text-dark2/70 "
       >
         <div
           className="absolute inset-0 bg-cover bg-center opacity-70 transition-opacity md:group-hover:opacity-50"
