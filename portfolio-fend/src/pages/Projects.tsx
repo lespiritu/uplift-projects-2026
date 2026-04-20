@@ -40,7 +40,9 @@ const Projects = () => {
           style={{
             backgroundImage: `url(${project.image})`,
           }}
-        ></div>
+        >
+          <img src={project.image} alt={project.name} className="w-full" />
+        </div>
         <div className="relative z-10 flex h-full w-full flex-col items-start gap-4 border border-secondary bg-light1-pattern p-2 transition-opacity duration-300 ease-in-out will-change-[opacity] [backface-hidden] opacity-100 md:opacity-0 md:group-hover:opacity-100">
           <div className="rounded-2xl p-6">
             <div className="flex justify-end gap-2 text-xl text-text-dark2">
