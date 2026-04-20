@@ -32,7 +32,7 @@ const profile: profile = {
   github: "https://github.com/lespiritu",
   gitlab: "https://gitlab.com/espirituleoncio7",
   facebook: "https://www.facebook.com/espirituleoncio7",
-  profilePicture: "/me-1.jpg",
+  profilePicture: "/my-pic-1.png",
   logo: "/leo_logo_green.png",
 };
 

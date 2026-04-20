@@ -19,9 +19,9 @@ const Home = () => {
       <div className="md:flex md:items-center px-2 gap-6 py-4 md:py-12">
         <div className=" flex-25 ">
           <div className="relative mx-auto aspect-square  w-70 sm:w-80 md:mx-0">
-            <div className="pointer-events-none absolute -inset-2 rounded-full border-2  border-secondary/30 " />
+            {/* <div className="pointer-events-none absolute -inset-1 rounded-full border border-b-cyan-50" /> */}
             <img
-              className="relative z-10 block h-full w-full rounded-full border-4 border-surface object-cover"
+              className="relative z-10 block  "
               src={profile.profilePicture}
               alt="My photo"
             />
