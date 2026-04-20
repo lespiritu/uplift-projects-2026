@@ -13,34 +13,18 @@ const cardVariants: Variants = {
     opacity: 1,
 
     transition: {
-      delay: index * 0.4,
+      delay: index * 0.2,
       duration: 0.5,
       ease: [1, 0.4, 0.4, 1],
     },
   }),
 };
 
-const contentVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 18,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: 0.18,
-      duration: 0.55,
-      ease: [0.22, 1, 0.36, 1],
-    },
-  },
-};
-
 const Projects = () => {
   const displayProjects = [...projects].reverse().map((project, index) => (
     <motion.div
       key={project.id}
-      className="h-full transition-all duration-300 ease-in-out"
+      className="h-full"
       variants={cardVariants}
       custom={index}
       initial="hidden"
@@ -49,27 +33,28 @@ const Projects = () => {
     >
       <div
         id="card-project"
-        className="group relative h-full min-h-80 overflow-hidden rounded-4xl border border-dashed border-accent bg-text-dark2/70 "
+        className="group relative h-full min-h-80 overflow-hidden rounded-4xl border border-dashed border-accent bg-text-dark2/70 [backface-hidden]"
       >
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-70 transition-opacity md:group-hover:opacity-50"
+          className="absolute inset-0 bg-cover bg-center opacity-70 transition-opacity md:group-hover:opacity-50 [backface-hidden]"
           style={{
             backgroundImage: `url(${project.image})`,
           }}
         ></div>
-        <motion.div
-          className="relative z-10 flex h-full w-full flex-col items-start gap-4 border border-secondary bg-light1-pattern p-2 opacity-100 md:-translate-y-full group-hover:translate-y-0 transition-all duration-300 ease-in-out"
-          variants={contentVariants}
-        >
-          <div className=" p-6 rounded-2xl">
-            <div className="flex gap-2 text-xl text-text-dark2 justify-end">
+        <div className="relative z-10 flex h-full w-full flex-col items-start gap-4 border border-secondary bg-light1-pattern p-2 transition-opacity duration-300 ease-in-out will-change-[opacity] [backface-hidden] opacity-100 md:opacity-0 md:group-hover:opacity-100">
+          <div className="rounded-2xl p-6">
+            <div className="flex justify-end gap-2 text-xl text-text-dark2">
               {project.gitlabLink && (
                 <a
                   href={project.gitlabLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
+                  className="group/icon relative hover:text-primary transition-colors"
+                  aria-label="View GitLab repository"
                 >
+                  <span className="pointer-events-none absolute -top-7 left-1/2 -translate-x-20 rounded-md bg-surface px-2 py-1 text-xs whitespace-nowrap text-text opacity-0 shadow-lg transition-opacity duration-200 group-hover/icon:opacity-100">
+                    View GitLab
+                  </span>
                   <FaGitlab />
                 </a>
               )}
@@ -78,8 +63,12 @@ const Projects = () => {
                   href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
+                  className="group/icon relative hover:text-primary transition-colors"
+                  aria-label="View GitHub repository"
                 >
+                  <span className="pointer-events-none absolute -top-7 left-1/2 -translate-x-20 rounded-md bg-surface px-2 py-1 text-xs whitespace-nowrap text-text opacity-0 shadow-lg transition-opacity duration-200 group-hover/icon:opacity-100">
+                    View GitHub
+                  </span>
                   <FaGithub />
                 </a>
               )}
@@ -88,13 +77,17 @@ const Projects = () => {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
+                  className="group/icon relative hover:text-primary transition-colors"
+                  aria-label="Open live project"
                 >
+                  <span className="pointer-events-none absolute -top-7 left-1/2 -translate-x-20 rounded-md bg-surface px-2 py-1 text-xs whitespace-nowrap text-text opacity-0 shadow-lg transition-opacity duration-200 group-hover/icon:opacity-100">
+                    Open Live Site
+                  </span>
                   <FaExternalLinkAlt />
                 </a>
               )}
             </div>
-            <h2 className="text-lg font-semibold text-text-dark2 pb-3">
+            <h2 className="pb-3 text-lg font-semibold text-text-dark2">
               {project.name}
             </h2>
             <p className="text-sm text-text-dark2">{project.description}</p>
@@ -102,14 +95,14 @@ const Projects = () => {
               {project.technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="inline-block rounded-full bg-primary/70 px-3 py-1 text-xs text-text-dark2 mr-2 mt-2"
+                  className="mr-2 mt-2 inline-block rounded-full bg-primary/70 px-3 py-1 text-xs text-text-dark2"
                 >
                   {tech}
                 </span>
               ))}
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </motion.div>
   ));

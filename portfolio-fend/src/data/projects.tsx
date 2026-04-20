@@ -125,6 +125,21 @@ const projects: project[] = [
       "Agile Methodology",
     ],
   },
+  {
+    id: 7,
+    name: "Reactjs web Portfolio",
+    description:
+      "A responsive personal portfolio built with React, TypeScript, Vite, and Tailwind CSS. It showcases my profile, technical skills, and selected projects through a modern single-page interface with smooth section transitions, interactive project cards, and a mobile-friendly layout.",
+    isFeatured: true,
+    link: "https://leoncio-espiritu.vercel.app/",
+    gitlabLink:
+      "https://gitlab.com/uplift-code-camp/students/batch-28/leoncio/projects/-/tree/c323b8c47461e8fb080a63fe992fb397c23dfcaa/portfolio-fend",
+    githubLink:
+      "https://github.com/lespiritu/uplift-projects-2026/tree/main/portfolio-fend",
+    image: "/images/project/react-web-portfolio.jpg",
+    status: "Active",
+    technologies: ["React.js", "TailwindCSS", "Typescript"],
+  },
 ];
 
 export default projects;
